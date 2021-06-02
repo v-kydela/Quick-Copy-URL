@@ -9,7 +9,7 @@
 const copyURL = (sendResponse) => {
   const url = window.location.href
     .replace(/docs\.microsoft\.com\/.+?\//, 'docs.microsoft.com/')
-    .replace(/\?.+(#|$)/, '$1');
+    .replace(/\?.+?(#|$)/, '$1');
 
   navigator.clipboard.writeText(url)
     .then(() => {
