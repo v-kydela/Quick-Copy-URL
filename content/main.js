@@ -7,7 +7,11 @@
  * @license     https://opensource.org/licenses/mit-license.php MIT License
  */
 const copyURL = (sendResponse) => {
-  navigator.clipboard.writeText(window.location.href)
+  const url = window.location.href
+    .replace(/docs\.microsoft\.com\/.+?\//, 'docs.microsoft.com/')
+    .replace(/\?.+(#|$)/, '$1');
+
+  navigator.clipboard.writeText(url)
     .then(() => {
       sendResponse('success');
       console.debug('[Quick Copy URL] Text copied to clipboard');
